@@ -1,4 +1,5 @@
 'use client';
+import NotesCard from '@/components/NotesCard';
 import PromptCard from '@/components/PromptCard';
 import { prompts } from '@/data';
 import { getPrompt } from '@/lib/prompts';
@@ -45,21 +46,8 @@ export default function Home() {
         </select>
       </div>
 
-      {prompt && (
-        <>
-          <PromptCard prompt={prompt.prompt} />
-          {prompt.note && (
-            <div className="mt-10">
-              <h1>Note</h1>
-              <div className="w-full mt-2 shadow-xl bg-neutral card ">
-                <div className="card-body">
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                </div>
-              </div>
-            </div>
-          )}
-        </>
-      )}
+      {prompt?.prompt && <PromptCard prompt={prompt.prompt} />}
+      {prompt?.note && <NotesCard note={prompt.note} />}
 
       <button
         className="mt-4 btn"
