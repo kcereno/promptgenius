@@ -1,4 +1,5 @@
 'use client';
+import PromptCard from '@/components/PromptCard';
 import { prompts } from '@/data';
 import { getPrompt } from '@/lib/prompts';
 import { PromptI } from '@/models/interfaces';
@@ -6,6 +7,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [prompt, setPrompt] = useState<PromptI | null>(null);
+  const [copyButtonClicked, setCopyButtonClicked] = useState(false);
 
   const handlePromptSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
@@ -45,14 +47,7 @@ export default function Home() {
 
       {prompt && (
         <>
-          <div className="mt-10">
-            <h1>Prompt</h1>
-            <div className="w-full mt-2 shadow-xl bg-neutral card ">
-              <div className="card-body">
-                <p>{prompt.prompt}</p>
-              </div>
-            </div>
-          </div>
+          <PromptCard prompt={prompt.prompt} />
           {prompt.note && (
             <div className="mt-10">
               <h1>Note</h1>
@@ -65,6 +60,15 @@ export default function Home() {
           )}
         </>
       )}
+
+      <button
+        className="mt-4 btn"
+        onClick={() => {
+          navigator.clipboard.writeText(prompt!.prompt);
+        }}
+      >
+        test
+      </button>
     </main>
   );
 }
