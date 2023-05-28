@@ -2,59 +2,77 @@ import React from 'react';
 
 const Nav = () => {
   return (
-    <div className="navbar bg-base-300">
-      <div className="flex-1">
-        <a className="text-xl normal-case btn btn-ghost">PromptGenius</a>
+    <div className="navbar bg-base-100">
+      <div className="navbar-start"></div>
+
+      <div className=" navbar-center lg:flex">
+        <a className="text-sm normal-case btn btn-ghost">PromptGenius</a>
+        {/* <ul className="px-1 menu menu-horizontal">
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li tabIndex={0}>
+            <a>
+              Parent
+              <svg
+                className="fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              </svg>
+            </a>
+            <ul className="p-2">
+              <li>
+                <a>Submenu 1</a>
+              </li>
+              <li>
+                <a>Submenu 2</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul> */}
       </div>
-      {/* End */}
-      {/* Mobile */}
-      <div className="dropdown dropdown-end lg:hidden">
-        <label
-          tabIndex={0}
-          className="btn btn-ghost btn-square avatar"
-        >
-          <button className="btn btn-square btn-ghost">
+
+      <div className="navbar-end">
+        <div className="dropdown dropdown-end">
+          <label
+            tabIndex={0}
+            className="btn btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
-              className="inline-block w-5 h-5 stroke-current"
+              stroke="currentColor"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-              ></path>
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
-          </button>
-        </label>
-        <ul
-          tabIndex={0}
-          className="w-32 p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
-        >
-          <li>
-            <a className="justify-between">Add</a>
-          </li>
-          <li>
-            <a>View All</a>
-          </li>
-          <li>
-            <a>Logout</a>
-          </li>
-        </ul>
-      </div>
-      {/* Desktop */}
-      <div className="flex-none hidden lg:block">
-        <ul className="px-1 menu menu-horizontal">
-          <li>
-            <a>Add</a>
-          </li>
+          </label>
+          <ul
+            tabIndex={0}
+            className="w-32 p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
+          >
+            <li>
+              <a>Add</a>
+            </li>
 
-          <li>
-            <a>View All</a>
-          </li>
-        </ul>
+            <li>
+              <a>View All</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  @apply text-2xl font-bold tracking-tight;
+}
+
+h2 {
+  @apply text-lg font-bold tracking-tight;
+}
+
+p {
+  @apply text-base font-normal tracking-tight;
+}
