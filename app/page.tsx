@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 export default function Home() {
   const [prompt, setPrompt] = useState<PromptI | null>(null);
-  const [copyButtonClicked, setCopyButtonClicked] = useState(false);
 
   const handlePromptSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
@@ -46,17 +45,13 @@ export default function Home() {
         </select>
       </div>
 
-      {prompt?.prompt && <PromptCard prompt={prompt.prompt} />}
+      {prompt?.prompt && (
+        <PromptCard
+          prompt={prompt.prompt}
+          tags={prompt.tags}
+        />
+      )}
       {prompt?.note && <NotesCard note={prompt.note} />}
-
-      <button
-        className="mt-4 btn"
-        onClick={() => {
-          navigator.clipboard.writeText(prompt!.prompt);
-        }}
-      >
-        test
-      </button>
     </main>
   );
 }
