@@ -29,15 +29,8 @@ export default function Home() {
   };
 
   return (
-    <div
-      data-theme={theme}
-      className="flex flex-col min-h-screen"
-    >
-      {/* Nav */}
-      <Nav changeTheme={changeTheme} />
-
-      {/* Main */}
-      <main className="flex-grow mx-5 lg:mx-10">
+    <div className="lg:w-[1200px] lg:mx-auto">
+      <div className="flex-grow mx-5 lg:mx-10">
         <div className="flex flex-col gap-16 lg:flex-row ">
           <div className="basis-1/2">
             <div className="mt-10">
@@ -75,6 +68,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Prompts */}
           <div className="">
             {prompt?.prompt && (
               <PromptCard
@@ -85,10 +79,7 @@ export default function Home() {
             {prompt?.note && <NotesCard note={prompt.note} />}
           </div>
         </div>
-      </main>
-
-      {/* Footer */}
-      <Footer />
+      </div>
     </div>
   );
 }
