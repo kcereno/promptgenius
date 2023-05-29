@@ -36,7 +36,7 @@ const PromptCard = ({ prompt, tags }: Props) => {
             <div
               className={`${
                 showCopiedText
-                  ? 'tooltip-open tooltip tooltip-bottom tooltip-secondary '
+                  ? 'tooltip-open tooltip tooltip-bottom tooltip-primary '
                   : ''
               }}`}
               data-tip="Copied!"

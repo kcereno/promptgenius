@@ -33,7 +33,10 @@ export default function Home() {
       data-theme={theme}
       className="flex flex-col min-h-screen"
     >
+      {/* Nav */}
       <Nav changeTheme={changeTheme} />
+
+      {/* Main */}
       <main className="flex-grow mx-5">
         <div className="mt-10">
           <h1>
@@ -61,6 +64,12 @@ export default function Home() {
               </option>
             ))}
           </select>
+
+          <div className="flex justify-center">
+            <button className="mt-10 text-center btn-secondary btn">
+              View By Tags
+            </button>
+          </div>
         </div>
 
         {prompt?.prompt && (
@@ -72,6 +81,7 @@ export default function Home() {
         {prompt?.note && <NotesCard note={prompt.note} />}
       </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
