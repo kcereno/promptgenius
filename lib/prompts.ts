@@ -1,8 +1,7 @@
 import { prompts } from '@/data';
 import { PromptI } from '@/models/interfaces';
 
-export const getPrompt = (prompt: string) =>
-  prompts.find((p) => p.prompt === prompt);
+export const getPrompt = (goal: string) => prompts.find((p) => p.goal === goal);
 
 export const getUniqueTags = (prompts: PromptI[]): string[] => {
   const uniqueTags: string[] = [];

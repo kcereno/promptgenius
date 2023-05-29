@@ -21,7 +21,7 @@ const ComboCard = ({ prompt, note, tags }: Props) => {
     setShowCopiedText(false);
   };
   return (
-    <div className="w-full shadow-xl card bg-primary-content">
+    <div className="w-full shadow-xl card bg-primary-content md:basis-[40%] md:flex-1 md:max-w-[50%]  ">
       <div className="card-body">
         <div className="flex justify-between">
           <h2 className="card-title">Prompts</h2>

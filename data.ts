@@ -1,58 +1,65 @@
 import { PromptI } from './models/interfaces';
 
-export const prompts = [
+export const prompts: PromptI[] = [
   {
+    goal: 'Understand the pain points of a job description',
     prompt:
-      'Write a dialogue between two characters discussing their favorite books.',
-    note: 'Encourage diverse book recommendations.',
-    tags: ['dialogue', 'books'],
+      'Based on this job description, what is the biggest challenge someone in this position would face day to day? // <PASTE JOB DESCRIPTION HERE>',
+    note: 'Useful for analyzing job descriptions and understanding the potential challenges that individuals in specific positions may face on a daily basis. By evaluating the requirements, responsibilities, and expectations outlined in the job description, it becomes possible to identify the key challenges someone in that role might encounter. // If youre considering applying for a position, understanding the challenges associated with the role can help you evaluate whether it aligns with your skills, interests, and ability to handle those challenges.',
+    tags: ['programming', 'learning', 'Python'],
   },
   {
-    prompt: 'Compose a poem about the beauty of nature in springtime.',
-    note: 'Focus on vivid imagery and sensory details.',
-    tags: ['poem', 'nature'],
+    goal: 'Write a book',
+    prompt: 'What is the topic of your book?',
+    note: 'Allocate dedicated time each day for writing.',
+    tags: ['writing', 'author', 'book'],
   },
   {
-    prompt:
-      'Create a short story set in a futuristic world where robots coexist with humans.',
-    note: 'Explore the ethical implications of advanced AI.',
-    tags: ['short story', 'science fiction'],
+    goal: 'Start a meditation practice',
+    prompt: 'How many minutes do you want to meditate each day?',
+    note: 'Create a quiet and peaceful space for your practice.',
+    tags: ['meditation', 'mindfulness', 'self-care'],
   },
   {
-    prompt: 'Design a logo for a sustainable fashion brand.',
-    note: 'Emphasize eco-friendly elements and minimalistic design.',
-    tags: ['logo design', 'sustainable fashion'],
+    goal: 'Exercise regularly',
+    prompt: 'What type of exercise do you enjoy?',
+    note: 'Set realistic and achievable fitness goals.',
+    tags: ['fitness', 'health', 'exercise'],
   },
   {
-    prompt: 'Write a persuasive essay advocating for renewable energy sources.',
-    note: 'Include statistical data and compelling arguments.',
-    tags: ['essay', 'renewable energy'],
+    goal: 'Learn to play a musical instrument',
+    prompt: 'Which instrument would you like to learn?',
+    note: 'Find a qualified instructor or use online resources for guidance.',
+    tags: ['music', 'instrument', 'learning'],
   },
   {
-    prompt:
-      'Craft a series of workout routines for beginners to improve overall fitness.',
-    note: 'Include exercises for different muscle groups and warm-up tips.',
-    tags: ['fitness', 'workout routines'],
+    goal: 'Travel to a new country',
+    prompt: 'Which country would you like to visit?',
+    note: 'Research visa requirements and plan your itinerary in advance.',
+    tags: ['travel', 'adventure', 'exploration'],
   },
   {
-    prompt: 'Compose a catchy jingle for a new soft drink commercial.',
-    note: 'Incorporate a memorable melody and upbeat lyrics.',
-    tags: ['jingle', 'advertising'],
+    goal: 'Start a blog',
+    prompt: 'What will be the main focus of your blog?',
+    note: 'Create engaging content and promote your blog on social media.',
+    tags: ['blogging', 'writing', 'online'],
   },
   {
-    prompt: 'Create an interactive quiz on world capitals.',
-    note: "Include multiple-choice questions and track users' scores.",
-    tags: ['quiz', 'geography'],
+    goal: 'Learn a new recipe',
+    prompt: 'What type of cuisine do you want to explore?',
+    note: 'Experiment with different ingredients and cooking techniques.',
+    tags: ['cooking', 'recipe', 'food'],
   },
   {
-    prompt:
-      'Write a step-by-step tutorial on baking a delicious chocolate cake.',
-    note: 'Include ingredient measurements and baking tips.',
-    tags: ['tutorial', 'baking'],
+    goal: 'Organize your workspace',
+    prompt: 'What items do you need to declutter or rearrange?',
+    note: 'Create an efficient and inspiring work environment.',
+    tags: ['organization', 'productivity', 'workspace'],
   },
   {
-    prompt: 'Design a user-friendly mobile app for tracking daily expenses.',
-    note: 'Focus on intuitive navigation and visual representations of data.',
-    tags: ['app design', 'expense tracking'],
+    goal: 'Volunteer for a charitable cause',
+    prompt: 'Which cause or organization do you want to support?',
+    note: 'Research local volunteer opportunities and commit your time.',
+    tags: ['volunteering', 'charity', 'giving back'],
   },
 ];

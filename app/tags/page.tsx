@@ -33,7 +33,7 @@ const TagsPage = () => {
   const isActiveTag = (tag: string) => activeTags.includes(tag);
 
   return (
-    <div className="mx-5 mt-10">
+    <div className="mx-5 mt-10 lg:w-[1200px] lg:mx-auto">
       <div className="">
         <h1>Tags:</h1>
         <div className="flex flex-wrap gap-2 mt-4">

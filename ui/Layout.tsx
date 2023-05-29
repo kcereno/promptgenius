@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
   let theme = 'night';
 
   if (!darkMode) {
-    theme = 'light';
+    theme = 'winter';
   }
 
   const changeTheme = () => {

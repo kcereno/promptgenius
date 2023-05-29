@@ -13,6 +13,7 @@ export default function Home() {
 
   const handlePromptSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
+    console.log('handlePromptSelect ~ selectedPrompt:', selectedPrompt);
     const foundPrompt = getPrompt(selectedPrompt);
     setPrompt(foundPrompt!);
   };
@@ -20,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Input */}
-      <div className="mx-5 lg:w-[1200px] lg:mx-auto lg:flex mt-10 gap-20 flex-1">
+      <div className="mx-5 lg:w-[1100px] lg:mx-auto mt-10 gap-20 flex-1">
         <div>
           {/* Header Text */}
           <div>
@@ -44,10 +45,10 @@ export default function Home() {
               <option defaultChecked>...</option>
               {prompts.map((prompt) => (
                 <option
-                  key={prompt.prompt}
-                  value={prompt.prompt}
+                  key={prompt.goal}
+                  value={prompt.goal}
                 >
-                  {prompt.prompt}
+                  {prompt.goal}
                 </option>
               ))}
             </select>
@@ -64,7 +65,7 @@ export default function Home() {
 
         {/* Answers */}
 
-        <div className="flex-1 w-full mt-10 lg:mt-0">
+        <div className="w-full mt-10 lg:mt-0">
           {prompt?.prompt && <PromptCard prompt={prompt.prompt} />}
           {prompt?.note && (
             <NotesCard

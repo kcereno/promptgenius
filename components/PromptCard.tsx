@@ -1,3 +1,4 @@
+import { convertStringToArray } from '@/util/general';
 import { useState } from 'react';
 
 interface Props {
@@ -15,6 +16,9 @@ const PromptCard = ({ prompt }: Props) => {
   const handleCopyButtonMouseLeave = () => {
     setShowCopiedText(false);
   };
+
+  const convertedString = convertStringToArray(prompt);
+  console.log('PromptCard ~ convertedString:', convertedString);
 
   return (
     <div>
@@ -39,7 +43,9 @@ const PromptCard = ({ prompt }: Props) => {
       <div>
         <div className="w-full mt-2 shadow-xl bg-primary-content card">
           <div className="card-body">
-            <p>{prompt}</p>
+            {convertedString.map((string) => (
+              <p key={string}>{string}</p>
+            ))}
           </div>
         </div>
       </div>
