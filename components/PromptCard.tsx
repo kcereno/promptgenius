@@ -18,7 +18,7 @@ const PromptCard = ({ prompt, tags }: Props) => {
   };
 
   return (
-    <div className="mt-10">
+    <div>
       <div className="flex justify-between">
         <h1>Prompt</h1>
         <div
@@ -28,6 +28,7 @@ const PromptCard = ({ prompt, tags }: Props) => {
           <button
             onClick={handleCopyButtonClick}
             onMouseLeave={handleCopyButtonMouseLeave}
+            className="btn btn-accent btn-sm"
           >
             Copy
           </button>

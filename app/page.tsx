@@ -29,57 +29,60 @@ export default function Home() {
   };
 
   return (
-    <div className="lg:w-[1200px] lg:mx-auto">
-      <div className="flex-grow mx-5 lg:mx-10">
-        <div className="flex flex-col gap-16 lg:flex-row ">
-          <div className="basis-1/2">
-            <div className="mt-10">
-              <h1>
-                Prompt
-                <span className="text-primary">Genius</span>
-              </h1>
-              <p className="mt-2 prose ">
-                Find the right prompts for AI engines you need without digging
-                the through the web
-              </p>
-            </div>
-            <div className="mt-10">
-              <p className="font-bold text-primary">I want to:</p>
-              <select
-                className="w-full mt-4 select select-bordered"
-                onChange={handlePromptSelect}
-              >
-                <option defaultChecked>...</option>
-                {prompts.map((prompt) => (
-                  <option
-                    key={prompt.prompt}
-                    value={prompt.prompt}
-                  >
-                    {prompt.prompt}
-                  </option>
-                ))}
-              </select>
-
-              <div className="flex justify-center">
-                <button className="mt-10 text-center btn-secondary btn">
-                  View By Tags
-                </button>
-              </div>
-            </div>
+    <>
+      {/* Input */}
+      <div className="mx-5 lg:w-[1200px] lg:mx-auto lg:flex mt-10 gap-20 flex-1">
+        <div>
+          {/* Header Text */}
+          <div>
+            <h1>
+              Prompt
+              <span className="text-primary">Genius</span>
+            </h1>
+            <p className="mt-2 prose ">
+              Find the right prompts for AI engines you need without digging the
+              through the web
+            </p>
           </div>
 
-          {/* Prompts */}
-          <div className="">
-            {prompt?.prompt && (
-              <PromptCard
-                prompt={prompt.prompt}
-                tags={prompt.tags}
-              />
-            )}
-            {prompt?.note && <NotesCard note={prompt.note} />}
+          {/* Form */}
+          <div className="mt-6">
+            <p className="font-bold text-primary">I want to:</p>
+            <select
+              className="w-full mt-4 select select-bordered"
+              onChange={handlePromptSelect}
+            >
+              <option defaultChecked>...</option>
+              {prompts.map((prompt) => (
+                <option
+                  key={prompt.prompt}
+                  value={prompt.prompt}
+                >
+                  {prompt.prompt}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex justify-center">
+            <button className="mt-10 text-center btn-secondary btn">
+              View By Tags
+            </button>
           </div>
         </div>
+
+        {/* Answers */}
+
+        <div className="flex-1 w-full mt-10 lg:mt-0">
+          {prompt?.prompt && (
+            <PromptCard
+              prompt={prompt.prompt}
+              tags={prompt.tags}
+            />
+          )}
+          {prompt?.note && <NotesCard note={prompt.note} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
