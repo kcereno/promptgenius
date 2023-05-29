@@ -20,7 +20,7 @@ const PromptCard = ({ prompt, tags }: Props) => {
   return (
     <div className="mt-10">
       <h1>Prompt</h1>
-      <div className="w-full mt-2 shadow-xl bg-neutral card ">
+      <div className="w-full mt-2 shadow-xl bg-primary-content card ">
         <div className="card-body">
           <p>{prompt}</p>
           <div className="justify-end mt-2 card-actions">
@@ -36,7 +36,7 @@ const PromptCard = ({ prompt, tags }: Props) => {
             <div
               className={`${
                 showCopiedText
-                  ? 'tooltip-open tooltip tooltip-bottom tooltip-primary '
+                  ? 'tooltip-open tooltip tooltip-bottom tooltip-secondary '
                   : ''
               }}`}
               data-tip="Copied!"
