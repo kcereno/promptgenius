@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-2xl font-bold tracking-tight;
+  @apply text-2xl font-bold tracking-tight lg:text-3xl;
 }
 
 h2 {
-  @apply text-lg font-bold tracking-tight;
+  @apply text-lg font-bold tracking-tight lg:text-2xl;
 }
 
 p {
