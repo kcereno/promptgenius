@@ -2,10 +2,9 @@ import { useState } from 'react';
 
 interface Props {
   prompt: string;
-  tags: string[];
 }
 
-const PromptCard = ({ prompt, tags }: Props) => {
+const PromptCard = ({ prompt }: Props) => {
   const [showCopiedText, setShowCopiedText] = useState(false);
 
   const handleCopyButtonClick = () => {
@@ -22,7 +21,9 @@ const PromptCard = ({ prompt, tags }: Props) => {
       <div className="flex justify-between">
         <h1>Prompt</h1>
         <div
-          className={`${showCopiedText ? 'tooltip tooltip-open' : ''}}`}
+          className={`${
+            showCopiedText ? 'tooltip tooltip-open tooltip-left' : ''
+          }}`}
           data-tip="Copied"
         >
           <button
@@ -39,16 +40,6 @@ const PromptCard = ({ prompt, tags }: Props) => {
         <div className="w-full mt-2 shadow-xl bg-primary-content card">
           <div className="card-body">
             <p>{prompt}</p>
-            <div className="justify-end hidden mt-4 card-actions">
-              {tags.map((tag) => (
-                <div
-                  className="hidden lg:block badge badge-outline"
-                  key={tag}
-                >
-                  {tag}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

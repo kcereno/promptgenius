@@ -1,31 +1,20 @@
 'use client';
-import Footer from '@/components/Footer';
-import Nav from '@/components/Nav';
+
 import NotesCard from '@/components/NotesCard';
 import PromptCard from '@/components/PromptCard';
 import { prompts } from '@/data';
 import { getPrompt } from '@/lib/prompts';
 import { PromptI } from '@/models/interfaces';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Home() {
   const [prompt, setPrompt] = useState<PromptI | null>(null);
-  const [darkMode, setDarkMose] = useState(true);
-
-  let theme = 'night';
-
-  if (!darkMode) {
-    theme = 'light';
-  }
 
   const handlePromptSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
     const foundPrompt = getPrompt(selectedPrompt);
     setPrompt(foundPrompt!);
-  };
-
-  const changeTheme = () => {
-    setDarkMose(!darkMode);
   };
 
   return (
@@ -65,22 +54,24 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center">
-            <button className="mt-10 text-center btn-secondary btn">
-              View By Tags
-            </button>
+            <Link href="/tags">
+              <button className="mt-10 text-center btn-secondary btn">
+                View By Tags
+              </button>
+            </Link>
           </div>
         </div>
 
         {/* Answers */}
 
         <div className="flex-1 w-full mt-10 lg:mt-0">
-          {prompt?.prompt && (
-            <PromptCard
-              prompt={prompt.prompt}
+          {prompt?.prompt && <PromptCard prompt={prompt.prompt} />}
+          {prompt?.note && (
+            <NotesCard
+              note={prompt.note}
               tags={prompt.tags}
             />
           )}
-          {prompt?.note && <NotesCard note={prompt.note} />}
         </div>
       </div>
     </>
