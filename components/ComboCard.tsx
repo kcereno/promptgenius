@@ -5,7 +5,7 @@ import CardTags from './CardTags';
 
 interface Props {
   prompt: string;
-  note: string;
+  note: string | undefined;
   tags: string[];
 }
 
