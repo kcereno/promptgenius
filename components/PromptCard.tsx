@@ -1,5 +1,6 @@
 import { convertStringToArray } from '@/util/general';
 import { useState } from 'react';
+import Typewriter from 'typewriter-effect';
 
 interface Props {
   prompt: string;
@@ -18,7 +19,6 @@ const PromptCard = ({ prompt }: Props) => {
   };
 
   const convertedString = convertStringToArray(prompt);
-  console.log('PromptCard ~ convertedString:', convertedString);
 
   return (
     <div>
@@ -43,9 +43,18 @@ const PromptCard = ({ prompt }: Props) => {
       <div>
         <div className="w-full mt-2 shadow-xl bg-primary-content card">
           <div className="card-body">
-            {convertedString.map((string) => (
+            {/* {convertedString.map((string) => (
               <p key={string}>{string}</p>
-            ))}
+            ))} */}
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString(prompt)
+
+                  .start();
+              }}
+              options={{ cursor: '', delay: 20 }}
+            />
           </div>
         </div>
       </div>
