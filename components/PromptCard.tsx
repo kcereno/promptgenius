@@ -47,6 +47,7 @@ const PromptCard = ({ prompt }: Props) => {
               <p key={string}>{string}</p>
             ))} */}
             <Typewriter
+              key={prompt}
               onInit={(typewriter) => {
                 typewriter
                   .typeString(prompt)

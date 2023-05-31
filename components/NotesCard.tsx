@@ -9,7 +9,7 @@ interface Props {
 }
 
 const NotesCard = ({ note, tags }: Props) => {
-  const convertedString = convertStringToArray(note);
+  // const convertedString = convertStringToArray(note);
   return (
     <div className="mt-10">
       <h1>Note</h1>
@@ -19,6 +19,7 @@ const NotesCard = ({ note, tags }: Props) => {
             <p key={string}>{string}</p>
           ))} */}
           <Typewriter
+            key={note}
             onInit={(typewriter) => {
               typewriter
                 .typeString(note)
