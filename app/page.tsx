@@ -65,15 +65,18 @@ export default function Home() {
 
         {/* Answers */}
 
-        <div className="w-full mt-10 lg:mt-0">
-          {prompt?.prompt && <PromptCard prompt={prompt.prompt} />}
-          {prompt?.note && (
-            <NotesCard
-              note={prompt.note}
-              tags={prompt.tags}
-            />
-          )}
-        </div>
+        {prompt?.prompt && (
+          <div className="w-full mt-10 lg:mt-0">
+            <div className="my-10 divider"></div>
+            <PromptCard prompt={prompt.prompt} />
+            {prompt?.note && (
+              <NotesCard
+                note={prompt.note}
+                tags={prompt.tags}
+              />
+            )}
+          </div>
+        )}
       </div>
     </>
   );
