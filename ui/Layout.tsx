@@ -22,13 +22,12 @@ const Layout = ({ children }: Props) => {
   };
 
   return (
-    <div
-      data-theme={theme}
-      className="flex flex-col min-h-screen"
-    >
-      <Nav changeTheme={changeTheme} />
-      <main className="flex-grow">{children}</main>
-      <Footer />
+    <div data-theme={theme}>
+      <div className="lg:w-[1000px] lg:mx-auto flex flex-col min-h-screen">
+        <Nav changeTheme={changeTheme} />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };

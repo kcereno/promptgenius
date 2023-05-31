@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Input */}
-      <div className="mx-5 lg:w-[1100px] lg:mx-auto mt-10 gap-20 flex-1">
+      <div className="flex-1 gap-20 mx-5 mt-10 ">
         <div>
           {/* Header Text */}
           <div>
