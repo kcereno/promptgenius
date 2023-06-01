@@ -30,6 +30,13 @@ const TagsPage = () => {
     setActiveTags(updatedActiveTags);
   };
 
+  const handleAllButtonClick = () => {
+    setActiveTags(tags);
+  };
+
+  const handleNoneButtonClick = () => {
+    setActiveTags([]);
+  };
   const isActiveTag = (tag: string) => activeTags.includes(tag);
 
   return (
@@ -38,8 +45,18 @@ const TagsPage = () => {
         <div className="flex content-center justify-between gap-4 ">
           <h1>Tags:</h1>
           <div className="flex gap-2 ">
-            <button className="btn btn-outline btn-primary btn-sm">All</button>
-            <button className="btn btn-outline btn-primary btn-sm">None</button>
+            <button
+              className="btn btn-outline btn-primary btn-sm"
+              onClick={handleAllButtonClick}
+            >
+              All
+            </button>
+            <button
+              className="btn btn-outline btn-primary btn-sm"
+              onClick={handleNoneButtonClick}
+            >
+              None
+            </button>
           </div>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">
