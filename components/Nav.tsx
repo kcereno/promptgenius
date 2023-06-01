@@ -2,6 +2,7 @@ import React from 'react';
 
 import HamburgerMenuIcon from '@/ui/Icons/HamburgerMenuIcon';
 import DarkModeButton from './DarkModeButton';
+import Link from 'next/link';
 
 interface Props {
   changeTheme: () => void;
@@ -49,7 +50,7 @@ const Nav = ({ changeTheme }: Props) => {
               <a>FAQ</a>
             </li>
             <li>
-              <a>View All</a>
+              <Link href="/prompts">View All</Link>
             </li>
           </ul>
         </div>

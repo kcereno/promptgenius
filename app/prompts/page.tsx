@@ -33,7 +33,7 @@ const TagsPage = () => {
   const isActiveTag = (tag: string) => activeTags.includes(tag);
 
   return (
-    <div className="mx-5 mt-10 lg:w-[1200px] lg:mx-auto">
+    <div className="mx-5 mt-10 ">
       <div className="">
         <h1>Tags:</h1>
         <div className="flex flex-wrap gap-2 mt-4">
@@ -56,10 +56,8 @@ const TagsPage = () => {
       <div className="flex flex-wrap gap-5">
         {filteredPrompts.map((prompt) => (
           <ComboCard
-            key={prompt.prompt}
-            prompt={prompt.prompt}
-            note={prompt.note}
-            tags={prompt.tags}
+            key={prompt.id}
+            prompt={prompt}
           />
         ))}
       </div>

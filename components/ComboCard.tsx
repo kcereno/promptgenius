@@ -1,33 +1,46 @@
 'use client';
 import React, { useState } from 'react';
-import { prompts } from '../data';
+
 import CardTags from './CardTags';
+import { PromptI } from '@/models/interfaces';
 
 interface Props {
-  prompt: string;
-  note: string | undefined;
-  tags: string[];
+  prompt: PromptI;
 }
 
-const ComboCard = ({ prompt, note, tags }: Props) => {
+const ComboCard = ({ prompt: { goal, prompt, tags } }: Props) => {
   const [showCopiedText, setShowCopiedText] = useState(false);
 
   const handleCopyButtonClick = () => {
     setShowCopiedText(true);
-    navigator.clipboard.writeText('test');
+    navigator.clipboard.writeText(prompt);
   };
 
   const handleCopyButtonMouseLeave = () => {
     setShowCopiedText(false);
   };
   return (
-    <div className="w-full shadow-xl card bg-primary-content md:basis-[40%] md:flex-1 md:max-w-[50%]  ">
+    <div className="w-full shadow-xl card bg-primary-content md:basis-[40%] md:flex-1 md:max-w-[50%] h-90 ">
       <div className="card-body">
-        <div className="flex justify-between">
-          <h2 className="card-title">Prompts</h2>
+        <div>
+          <h2 className="card-title">Goal</h2>
+          <p>{goal}</p>
+        </div>
+
+        <div className="divider" />
+
+        <div className="">
+          <h2 className="card-title">Prompt</h2>
+          <p>{prompt}</p>
+        </div>
+        <CardTags tags={tags} />
+        <div className="justify-end mt-5 card-actions">
+          <button className="btn btn-outline btn-accent btn-sm">Notes</button>
           <div
             className={`${
-              showCopiedText ? 'tooltip tooltip-open tooltip-accent' : ''
+              showCopiedText
+                ? 'tooltip tooltip-bottom tooltip-open tooltip-accent bg-pink-500'
+                : ''
             }}`}
             data-tip="Copied"
           >
@@ -36,16 +49,10 @@ const ComboCard = ({ prompt, note, tags }: Props) => {
               onMouseLeave={handleCopyButtonMouseLeave}
               className="btn btn-accent btn-sm"
             >
-              Copy
+              Copy Prompt
             </button>
           </div>
         </div>
-
-        <p>{prompt}</p>
-        <div className="divider" />
-        <h2 className="card-title">Notes</h2>
-        <p>{note}</p>
-        <CardTags tags={tags} />
       </div>
     </div>
   );
