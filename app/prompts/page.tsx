@@ -35,7 +35,13 @@ const TagsPage = () => {
   return (
     <div className="mx-5 mt-10 ">
       <div className="">
-        <h1>Tags:</h1>
+        <div className="flex content-center justify-between gap-4 ">
+          <h1>Tags:</h1>
+          <div className="flex gap-2 ">
+            <button className="btn btn-outline btn-primary btn-sm">All</button>
+            <button className="btn btn-outline btn-primary btn-sm">None</button>
+          </div>
+        </div>
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag) => (
             <div
