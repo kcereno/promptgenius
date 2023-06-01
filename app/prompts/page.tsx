@@ -7,6 +7,7 @@ import { PromptI } from '@/models/interfaces';
 
 const TagsPage = () => {
   const tags = getUniqueTags(prompts).sort((a, b) => a.localeCompare(b));
+
   const [activeTags, setActiveTags] = useState<string[]>(tags);
   const [filteredPrompts, setFilteredPrompts] = useState<PromptI[]>([]);
 
@@ -46,13 +47,21 @@ const TagsPage = () => {
           <h1>Tags:</h1>
           <div className="flex gap-2 ">
             <button
-              className="btn btn-outline btn-primary btn-sm"
+              className={`btn btn-sm ${
+                activeTags.length === tags.length
+                  ? 'btn-primary'
+                  : 'btn-outline btn-primary'
+              }`}
               onClick={handleAllButtonClick}
             >
               All
             </button>
             <button
-              className="btn btn-outline btn-primary btn-sm"
+              className={`btn btn-sm ${
+                activeTags.length === 0
+                  ? 'btn-primary'
+                  : 'btn-outline btn-primary'
+              }`}
               onClick={handleNoneButtonClick}
             >
               None
@@ -63,7 +72,7 @@ const TagsPage = () => {
           {tags.map((tag) => (
             <div
               key={tag}
-              className={`badge ${
+              className={`badge hover:cursor-pointer ${
                 isActiveTag(tag)
                   ? 'badge-primary'
                   : 'badge-outline badge-primary'
