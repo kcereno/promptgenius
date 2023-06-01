@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Input */}
-      <div className="flex-1 gap-20 mx-5 mt-10 ">
+      <div className="flex-1 gap-20 mx-5 mt-10 lg:mt-20">
         <div>
           {/* Header Text */}
           <div>
@@ -52,14 +52,6 @@ export default function Home() {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div className="flex justify-center">
-            <Link href="/tags">
-              <button className="mt-10 text-center btn-secondary btn">
-                View By Tags
-              </button>
-            </Link>
           </div>
         </div>
 

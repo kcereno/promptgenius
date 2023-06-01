@@ -40,7 +40,7 @@ const Nav = ({ changeTheme }: Props) => {
           </ul>
         </div>
         {/* Desktop */}
-        <div className="">
+        <div className="hidden lg:block">
           <ul className="px-1 menu menu-horizontal">
             <li>
               <a>Home</a>
