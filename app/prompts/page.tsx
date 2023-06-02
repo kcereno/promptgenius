@@ -4,20 +4,32 @@ import React, { useEffect, useState } from 'react';
 import { getUniqueTags } from '../../lib/prompts';
 import { prompts } from '@/data';
 import { PromptI } from '@/models/interfaces';
+import Pagination from '@/ui/Pagination';
 
-const TagsPage = () => {
+const AllPromptsPage = () => {
   const tags = getUniqueTags(prompts).sort((a, b) => a.localeCompare(b));
 
   const [activeTags, setActiveTags] = useState<string[]>(tags);
   const [filteredPrompts, setFilteredPrompts] = useState<PromptI[]>([]);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   useEffect(() => {
     const getFilteredPrompts = prompts.filter((prompt) =>
       prompt.tags.some((tag) => activeTags.includes(tag))
     );
 
-    setFilteredPrompts(getFilteredPrompts);
-  }, [activeTags]);
+    const totalPages = Math.ceil(getFilteredPrompts.length / 4);
+    setTotalPages(totalPages);
+
+    const shownPrompts = getFilteredPrompts.slice(
+      (currentPage - 1) * 4,
+      currentPage * 4
+    );
+
+    setFilteredPrompts(shownPrompts);
+  }, [activeTags, currentPage]);
 
   const handleTagClick = (tag: string) => {
     let updatedActiveTags;
@@ -29,6 +41,7 @@ const TagsPage = () => {
     }
 
     setActiveTags(updatedActiveTags);
+    setCurrentPage(1);
   };
 
   const handleAllButtonClick = () => {
@@ -42,7 +55,7 @@ const TagsPage = () => {
 
   return (
     <div className="mx-5 mt-10 ">
-      <div className="">
+      <div>
         <div className="flex content-center justify-between gap-4 ">
           <h1>Tags:</h1>
           <div className="flex gap-2 ">
@@ -68,7 +81,7 @@ const TagsPage = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-5">
           {tags.map((tag) => (
             <div
               key={tag}
@@ -84,7 +97,8 @@ const TagsPage = () => {
           ))}
         </div>
       </div>
-      <div className="my-10 divider">Cards</div>
+      <div className="my-10 divider"></div>
+
       <div className="flex flex-wrap gap-5">
         {filteredPrompts.map((prompt) => (
           <ComboCard
@@ -93,8 +107,17 @@ const TagsPage = () => {
           />
         ))}
       </div>
+      {totalPages > 1 && (
+        <div className="flex justify-center my-10">
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalPages={totalPages}
+          />
+        </div>
+      )}
     </div>
   );
 };
 
-export default TagsPage;
+export default AllPromptsPage;
