@@ -44,9 +44,11 @@ const Nav = ({ changeTheme }: Props) => {
       <div className="navbar-start">
         <Link
           href="/"
-          className="text-xl normal-case btn btn-ghost"
+          className="hidden text-xl normal-case btn btn-ghost lg:inline-flex"
         >
-          Prompt<span className="text-primary">Genius</span>
+          <div className="">
+            Prompt<span className="text-primary">Genius</span>
+          </div>
         </Link>
         {mobileMenu}
       </div>
