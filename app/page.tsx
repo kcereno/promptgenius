@@ -13,7 +13,7 @@ export default function Home() {
 
   const handlePromptSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
-    console.log('handlePromptSelect ~ selectedPrompt:', selectedPrompt);
+
     const foundPrompt = getPrompt(selectedPrompt);
     setPrompt(foundPrompt!);
   };

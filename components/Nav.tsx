@@ -26,14 +26,14 @@ const Nav = ({ changeTheme }: Props) => {
         className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
       >
         <li>
-          <a href="">Home</a>
+          <Link href="/">Home</Link>
         </li>
-        <li>
+        {/* <li>
           <a href="">FAQ</a>
-        </li>
+        </li> */}
 
         <li>
-          <a href="">View All</a>
+          <Link href="/prompts">View All</Link>
         </li>
       </ul>
     </div>
