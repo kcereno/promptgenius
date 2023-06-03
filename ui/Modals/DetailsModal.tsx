@@ -1,12 +1,14 @@
+import { getPrompt } from '@/lib/prompts';
 import { PromptI } from '@/models/interfaces';
 import React from 'react';
 
 interface Props {
-  note: string;
+  promptId: string;
 }
 
-const DetailsModal = ({ note }: Props) => {
-  console.log('DetailsModal ~ note:', note);
+const DetailsModal = ({ promptId }: Props) => {
+  const prompt = getPrompt(promptId);
+
   return (
     <>
       <input
@@ -17,7 +19,7 @@ const DetailsModal = ({ note }: Props) => {
       <div className="modal">
         <div className="modal-box">
           <h2 className="text-xl font-bold">Notes</h2>
-          <p className="py-4">{note}</p>
+          <p className="py-4">{prompt?.note}</p>
           <div className="modal-action">
             <label
               htmlFor="notes-modal"

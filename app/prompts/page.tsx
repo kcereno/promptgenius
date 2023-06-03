@@ -5,12 +5,17 @@ import { getUniqueTags } from '../../lib/prompts';
 import { prompts } from '@/data';
 import { PromptI } from '@/models/interfaces';
 import Pagination from '@/ui/Pagination';
+import DetailsModal from '@/ui/Modals/DetailsModal';
+import OpenModalButton from '@/ui/Buttons/OpenModalButton';
 
 const AllPromptsPage = () => {
   const tags = getUniqueTags(prompts).sort((a, b) => a.localeCompare(b));
 
   const [activeTags, setActiveTags] = useState<string[]>(tags);
   const [filteredPrompts, setFilteredPrompts] = useState<PromptI[]>([]);
+
+  const [selectedPromptId, setSelectedPromptId] = useState<string>('');
+  console.log('AllPromptsPage ~ selectedPromptId:', selectedPromptId);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -55,6 +60,7 @@ const AllPromptsPage = () => {
 
   return (
     <div className="mx-5 mt-10 ">
+      <DetailsModal promptId={selectedPromptId} />
       <div>
         <div className="flex content-center justify-between gap-4 ">
           <h1>Tags:</h1>
@@ -104,6 +110,7 @@ const AllPromptsPage = () => {
           <ComboCard
             key={prompt.id}
             prompt={prompt}
+            setSelectedPromptId={setSelectedPromptId}
           />
         ))}
       </div>

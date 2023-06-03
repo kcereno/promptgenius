@@ -2,16 +2,18 @@ import React from 'react';
 
 interface Props {
   modalId: string;
-  classNames?: string;
+  className?: string;
   text: string;
   notes?: string;
+  onClick?: any;
 }
 
-const OpenModalButton = ({ modalId, classNames, text }: Props) => {
+const OpenModalButton = ({ modalId, className, text, onClick }: Props) => {
   return (
     <label
       htmlFor={modalId}
-      className={`btn ${classNames}`}
+      className={`btn ${className}`}
+      onClick={onClick}
     >
       {text}
     </label>

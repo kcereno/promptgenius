@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 
 import CardTags from './CardTags';
 import { PromptI } from '@/models/interfaces';
+import OpenModalButton from '@/ui/Buttons/OpenModalButton';
 
 interface Props {
   prompt: PromptI;
+  setSelectedPromptId: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ComboCard = ({ prompt: { goal, prompt, tags } }: Props) => {
+const ComboCard = ({
+  prompt: { goal, prompt, tags, id, note },
+  setSelectedPromptId,
+}: Props) => {
   const [showCopiedText, setShowCopiedText] = useState(false);
 
   const handleCopyButtonClick = () => {
@@ -19,6 +24,11 @@ const ComboCard = ({ prompt: { goal, prompt, tags } }: Props) => {
   const handleCopyButtonMouseLeave = () => {
     setShowCopiedText(false);
   };
+
+  const handleOpenModalButtonClick = () => {
+    setSelectedPromptId(id);
+  };
+
   return (
     <div className="w-full shadow-xl card bg-primary-content md:basis-[40%] md:flex-1 md:max-w-[50%] h-90 ">
       <div className="card-body">
@@ -35,7 +45,15 @@ const ComboCard = ({ prompt: { goal, prompt, tags } }: Props) => {
         </div>
         <CardTags tags={tags} />
         <div className="justify-end mt-5 card-actions">
-          <button className="btn btn-outline btn-accent btn-sm">Notes</button>
+          {note && (
+            <OpenModalButton
+              className="btn btn-accent btn-sm btn-outline"
+              modalId="notes-modal"
+              text="Notes"
+              onClick={handleOpenModalButtonClick}
+            />
+          )}
+
           <div
             className={`${
               showCopiedText
