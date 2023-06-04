@@ -1,7 +1,7 @@
 'use client';
 import ComboCard from '@/components/ComboCard';
 import React, { useEffect, useState } from 'react';
-import { getUniqueTags } from '../../lib/prompts';
+import { getUniqueTags } from '../../../lib/prompts';
 import { prompts } from '@/data';
 import { PromptI } from '@/models/interfaces';
 import Pagination from '@/ui/Pagination';

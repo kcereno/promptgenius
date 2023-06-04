@@ -6,3 +6,8 @@ export interface PromptI {
   note?: string;
   tags: string[];
 }
+
+export interface FAQDataPointI {
+  question: string;
+  answer: string;
+}

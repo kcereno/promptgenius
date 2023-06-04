@@ -28,9 +28,9 @@ const Nav = ({ changeTheme }: Props) => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        {/* <li>
-          <a href="">FAQ</a>
-        </li> */}
+        <li>
+          <Link href="faq">FAQ</Link>
+        </li>
 
         <li>
           <Link href="/prompts">View All</Link>
@@ -59,7 +59,7 @@ const Nav = ({ changeTheme }: Props) => {
               <Link href="/prompts">View All</Link>
             </li>
             <li>
-              <a>FAQ</a>
+              <Link href="faq">FAQ</Link>
             </li>
           </ul>
         </div>

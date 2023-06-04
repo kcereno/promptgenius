@@ -29,8 +29,8 @@ export default function Home() {
               Prompt
               <span className="text-primary">Genius</span>
             </h1>
-            <p className="mt-2 prose ">
-              Find the right prompts for AI engines you need without digging the
+            <p className="mt-2 prose">
+              Find the right prompts for AI engines you need without digging
               through the web
             </p>
           </div>
@@ -46,7 +46,7 @@ export default function Home() {
               {prompts.map((prompt) => (
                 <option
                   key={prompt.goal}
-                  value={prompt.goal}
+                  value={prompt.id}
                 >
                   {prompt.goal}
                 </option>
