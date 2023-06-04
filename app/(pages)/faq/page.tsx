@@ -6,14 +6,14 @@ import React from 'react';
 const FAQPage = () => {
   return (
     <div className="mx-4 mt-10">
-      <h1 className="text-center">FAQ</h1>
+      <h1 className="mb-10 text-center ">Frequently Asked Questions</h1>
       {faqData.map((dataPoint) => (
         <div
           key={dataPoint.question}
           className="mt-5"
         >
           <h2>{dataPoint.question}</h2>
-          <p>{dataPoint.answer}</p>
+          <p className="mt-2">{dataPoint.answer}</p>
           <div className="divider"></div>
         </div>
       ))}

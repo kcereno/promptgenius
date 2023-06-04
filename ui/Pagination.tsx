@@ -13,7 +13,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }: Props) => {
     buttons.push(
       <button
         key={i}
-        className={`join-item btn btn-secondary ${
+        className={`join-item btn btn-primary ${
           currentPage === i ? 'btn-active' : ''
         }`}
         onClick={() => setCurrentPage(i)}
