@@ -42,10 +42,7 @@ const PromptCard = ({ prompt }: Props) => {
 
       <div>
         <div className="w-full mt-2 shadow-xl bg-primary-content card">
-          <div className="card-body">
-            {/* {convertedString.map((string) => (
-              <p key={string}>{string}</p>
-            ))} */}
+          <div className="whitespace-pre-line card-body">
             <Typewriter
               key={prompt}
               onInit={(typewriter) => {
