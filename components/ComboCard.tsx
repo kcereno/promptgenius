@@ -39,7 +39,7 @@ const ComboCard = ({
 
         <div className="divider" />
 
-        <div className="">
+        <div className="whitespace-pre-line">
           <h2 className="card-title">Prompt</h2>
           <p>{prompt}</p>
         </div>
